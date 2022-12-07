@@ -1,21 +1,23 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from 'components/Button';
 import { LinkButton } from 'components/LinkButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/features/auth/authOperations';
-import { getStatus } from '../redux/features/auth/authSelectors';
+import { checkIsAuth, getStatus } from '../redux/features/auth/authSelectors';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(getStatus);
+  const isAuth = useSelector(checkIsAuth);
+  const navigate = useNavigate();
 
   const {
     register: registerInput,
     formState: { errors },
     handleSubmit,
-    reset,
   } = useForm({
     mode: 'onSubmit',
   });
@@ -24,12 +26,13 @@ export const LoginPage = () => {
     if (status) {
       if (status === 'Login successful') {
         toast.success('Login successful');
-        reset();
       } else {
         toast.error(status);
       }
     }
-  }, [reset, status]);
+
+    if (isAuth) navigate('/');
+  }, [isAuth, navigate, status]);
 
   const onSubmit = data => {
     dispatch(login(data));

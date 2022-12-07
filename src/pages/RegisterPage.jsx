@@ -4,18 +4,20 @@ import { Button } from 'components/Button';
 import { LinkButton } from 'components/LinkButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../redux/features/auth/authOperations';
-import { getStatus } from '../redux/features/auth/authSelectors';
+import { checkIsAuth, getStatus } from '../redux/features/auth/authSelectors';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(getStatus);
+  const isAuth = useSelector(checkIsAuth);
+  const navigate = useNavigate();
 
   const {
     register: registerInput,
     formState: { errors },
     handleSubmit,
-    reset,
   } = useForm({
     mode: 'onSubmit',
   });
@@ -24,12 +26,13 @@ export const RegisterPage = () => {
     if (status) {
       if (status === 'Registration successful') {
         toast.success('Registration successful');
-        reset();
       } else {
         toast.error(status);
       }
     }
-  }, [reset, status]);
+
+    if (isAuth) navigate('/');
+  }, [isAuth, navigate, status]);
 
   const onSubmit = data => {
     dispatch(register(data));

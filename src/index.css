@@ -18,3 +18,7 @@ a:focus {
 a {
   display: inline-block;
 }
+
+ul {
+  text-decoration: none;
+}

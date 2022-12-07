@@ -3,6 +3,7 @@ import { register, login, getCurrent, logout } from './authOperations';
 
 const initialState = {
   user: {
+    _id: null,
     username: null,
     email: null,
     posts: [],
@@ -27,6 +28,7 @@ export const authSlice = createSlice({
     },
     [register.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
+      state.user._id = payload._id;
       state.user.username = payload.username;
       state.user.email = payload.email;
       state.token = payload.token;
@@ -43,6 +45,7 @@ export const authSlice = createSlice({
     },
     [login.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
+      state.user._id = payload._id;
       state.user.username = payload.username;
       state.user.email = payload.email;
       state.token = payload.token;
@@ -59,6 +62,7 @@ export const authSlice = createSlice({
     },
     [getCurrent.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
+      state.user._id = payload._id;
       state.user.username = payload.username;
       state.user.email = payload.email;
       state.token = payload.token;
