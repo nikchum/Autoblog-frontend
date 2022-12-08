@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createPost, getAllPosts, removePost } from './postsOperations';
+import { createPost, getAllPosts, removePost, updatePost } from './postsOperations';
 
 const initialState = {
   posts: [],
@@ -55,6 +55,21 @@ export const postSlice = createSlice({
       state.status = payload.message;
     },
     [removePost.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.status = payload;
+    },
+
+    [updatePost.pending]: state => {
+      state.isLoading = true;
+      state.status = null;
+    },
+    [updatePost.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      const index = state.posts.findIndex(post => post._id === payload.post._id);
+      state.posts[index] = payload.post;
+      state.status = payload.message;
+    },
+    [updatePost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.status = payload;
     },

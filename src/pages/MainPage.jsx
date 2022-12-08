@@ -3,7 +3,7 @@ import { PostItem } from 'components/PostItem';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from 'redux/features/posts/postsOperations';
-import { getPopularPosts, getPosts } from 'redux/features/posts/postsSelector';
+import { getPopularPosts, getPosts } from 'redux/features/posts/postsSelectors';
 
 export const MainPage = () => {
   const dispatch = useDispatch();

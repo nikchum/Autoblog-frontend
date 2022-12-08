@@ -1,10 +1,9 @@
 import { Button } from 'components/Button';
-import { LinkButton } from 'components/LinkButton';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { getStatus } from 'redux/features/posts/postsSelector';
+import { getStatus } from 'redux/features/posts/postsSelectors';
 import { createPost } from 'redux/features/posts/postsOperations';
 import { useNavigate } from 'react-router-dom';
 import { removeStatus } from 'redux/features/posts/postsSlice';
@@ -13,11 +12,9 @@ export const AddPostPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(getStatus);
   const navigate = useNavigate();
-  console.log(status);
 
   const {
     register,
-    resetField,
     reset,
     watch,
     formState: { errors },

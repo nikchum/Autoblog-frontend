@@ -3,11 +3,11 @@ import { NavBar } from './NavBar';
 
 export const Layout = ({ children }) => {
   return (
-    <header>
-      <div className="container mx-auto">
+    <div className="container mx-auto px-4">
+      <header>
         <NavBar />
-        {children}
-      </div>
-    </header>
+      </header>
+      {children}
+    </div>
   );
 };

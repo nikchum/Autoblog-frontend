@@ -23,22 +23,16 @@ export const PostItem = ({ post }) => {
           </div>
         </div>
         <h2 className="text-xl text-white">{post.title}</h2>
-        <p className="pt-4 text-xs text-white opacity-60">{post.text}</p>
+        <p className="pt-4 text-xs text-white opacity-60 line-clamp-4">{post.text}</p>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            className="flex items-center justify-between gap-2 text-xs text-white opacity-50"
-          >
+          <div className="flex items-center justify-between gap-2 text-xs text-white opacity-50">
             <AiFillEye />
             <span>{post.views}</span>
-          </button>
-          <button
-            type="button"
-            className="flex items-center justify-between gap-2 text-xs text-white opacity-50"
-          >
+          </div>
+          <div className="flex items-center justify-between gap-2 text-xs text-white opacity-50">
             <AiOutlineMessage />
             <span>{post.comments?.length}</span>
-          </button>
+          </div>
         </div>
       </Link>
     </li>
