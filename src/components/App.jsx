@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,12 +28,13 @@ export const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="posts" element={<PostsPage />} />
+        <Route path="/posts" element={<PostsPage />} />
         <Route path=":id" element={<PostPage />} />
         <Route path=":id/edit" element={<EditPostPage />} />
         <Route path="new" element={<AddPostPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="*" element={<Navigate to={'/'} />} />
       </Routes>
 
       <ToastContainer
