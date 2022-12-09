@@ -89,6 +89,7 @@ export const PostPage = () => {
             <div className={post?.imgUrl ? 'flex h-80 rounded-sm' : 'flex rounded-sm'}>
               {post?.imgUrl && (
                 <img
+
                   src={`http://localhost:3002/${post.imgUrl}`}
                   alt="img"
                   className="w-full object-cover"

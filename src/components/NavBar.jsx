@@ -37,6 +37,7 @@ export const NavBar = () => {
         <NavLink
           className="transition-colors hover:text-white focus:text-white"
           to={path}
+          end
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
         >
           {text}

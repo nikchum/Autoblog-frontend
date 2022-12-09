@@ -53,7 +53,7 @@ export const AddPostPage = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto mt-10 flex h-60 w-2/3 flex-col gap-4"
+      className="h-m-60 mx-auto mt-10 flex w-2/4 flex-col gap-4 "
     >
       <h1 className=" text-center text-2xl font-medium  text-white">Create post</h1>
 
@@ -62,8 +62,10 @@ export const AddPostPage = () => {
         <input {...register('image')} type="file" className="hidden" />
       </label>
 
-      <div className="flex object-cover py-2">
-        {!!image?.length && <img src={URL.createObjectURL(image[0])} alt="poster" />}
+      <div className="flex max-h-80  py-2">
+        {!!image?.length && (
+          <img src={URL.createObjectURL(image[0])} alt="poster" className="w-full object-cover" />
+        )}
       </div>
 
       <label className=" text-xs">

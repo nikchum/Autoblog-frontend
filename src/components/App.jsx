@@ -30,9 +30,9 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index exact element={<MainPage />} />
           <Route path="posts" element={<PostsPage />} />
+          <Route path="posts/new" element={<AddPostPage />} />
           <Route path="posts/:id" element={<PostPage />} />
           <Route path="posts/:id/edit" element={<EditPostPage />} />
-          <Route path="posts/new" element={<AddPostPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
         </Route>
