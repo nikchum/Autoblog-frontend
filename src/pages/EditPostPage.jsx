@@ -1,12 +1,15 @@
-import { Button } from 'components/Button';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { getStatus } from 'redux/features/posts/postsSelectors';
-import { createPost, updatePost } from 'redux/features/posts/postsOperations';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+
+import { getStatus } from 'redux/features/posts/postsSelectors';
+import { updatePost } from 'redux/features/posts/postsOperations';
+
+import { Button } from 'components/Button';
 import { removeStatus } from 'redux/features/posts/postsSlice';
+
 import axios from '../utils/axios';
 
 export const EditPostPage = () => {
@@ -69,7 +72,7 @@ export const EditPostPage = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto mt-10 flex h-60 w-1/3 flex-col gap-4"
+      className="mx-auto mt-10 flex h-60 w-2/3 flex-col gap-4"
     >
       <h1 className=" text-center text-2xl font-medium  text-white">Create post</h1>
 

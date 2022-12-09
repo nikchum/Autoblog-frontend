@@ -1,28 +1,17 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import { checkIsAuth, getStatus, getToken } from 'redux/features/auth/authSelectors';
-import logo from '../img/logo.png';
+import { removeStatus } from 'redux/features/auth/authSlice';
+import { logout } from '../redux/features/auth/authOperations';
+
 import { Button } from './Button';
 import { LinkButton } from './LinkButton';
-import { logout } from '../redux/features/auth/authOperations';
-import { toast } from 'react-toastify';
-import { removeStatus } from 'redux/features/auth/authSlice';
 
-const navLinks = [
-  {
-    path: '/',
-    text: 'Home',
-  },
-  {
-    path: '/posts',
-    text: 'My posts',
-  },
-  {
-    path: '/new',
-    text: 'Add post',
-  },
-];
+import { navLinks } from 'constans/navLinks';
+import logo from '../img/logo.png';
 
 const activeStyles = {
   color: 'white',
@@ -39,13 +28,14 @@ export const NavBar = () => {
       toast.success(statusMessage);
       dispatch(removeStatus());
     }
-  }, [isLogin]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, isLogin]);
 
   const createNavLinks = links => {
     return links.map(({ path, text }, idx) => (
       <li key={idx}>
         <NavLink
-          className="transition-colors hover:text-white"
+          className="transition-colors hover:text-white focus:text-white"
           to={path}
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
         >

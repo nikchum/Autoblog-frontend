@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from 'components/Button';
-import { LinkButton } from 'components/LinkButton';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import { login } from '../redux/features/auth/authOperations';
 import { checkIsAuth, getStatus } from '../redux/features/auth/authSelectors';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+
+import { Button } from 'components/Button';
+import { LinkButton } from 'components/LinkButton';
 
 export const LoginPage = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,12 @@
 import React from 'react';
-import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 
+import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
+
 export const PostItem = ({ post }) => {
   return (
-    <li className="flex flex-grow basis-1/4 flex-col">
+    <li className="flex flex-grow basis-1/4 flex-col rounded-[8px] bg-gray-700 shadow-lg transition-transform hover:scale-[1.02]">
       <Link to={`/${post._id}`}>
         <div className={post.imgUrl ? 'flex h-80 rounded-sm' : 'flex rounded-sm'}>
           {post.imgUrl && (
@@ -16,22 +17,24 @@ export const PostItem = ({ post }) => {
             />
           )}
         </div>
-        <div className="flex items-center justify-between pt-2">
-          <div className="text-xs text-white opacity-50">{post.username}</div>
-          <div className="text-xs text-white opacity-50">
-            <Moment date={post.createdAt} format="D MMM YYYY" />
+        <div className="px-4 py-3">
+          <div className="flex items-center justify-between ">
+            <p className="text-xs text-white opacity-60">Author: {post.username}</p>
+            <div className="text-xs text-white opacity-60">
+              <Moment date={post.createdAt} format="D MMM YYYY" />
+            </div>
           </div>
-        </div>
-        <h2 className="text-xl text-white">{post.title}</h2>
-        <p className="pt-4 text-xs text-white opacity-60 line-clamp-4">{post.text}</p>
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-between gap-2 text-xs text-white opacity-50">
-            <AiFillEye />
-            <span>{post.views}</span>
-          </div>
-          <div className="flex items-center justify-between gap-2 text-xs text-white opacity-50">
-            <AiOutlineMessage />
-            <span>{post.comments?.length}</span>
+          <h2 className="pt-2 text-2xl text-white ">{post.title}</h2>
+          <p className="pt-2 text-sm text-white opacity-80 line-clamp-4">{post.text}</p>
+          <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center justify-between gap-2 text-xs text-white opacity-90">
+              <AiFillEye className="text-base" />
+              <span>{post.views}</span>
+            </div>
+            <div className="flex items-center justify-between gap-2 text-xs text-white opacity-90">
+              <AiOutlineMessage className="text-base" />
+              <span>{post.comments?.length}</span>
+            </div>
           </div>
         </div>
       </Link>

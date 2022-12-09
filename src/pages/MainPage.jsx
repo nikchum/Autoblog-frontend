@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getPopularPosts, getPosts } from 'redux/features/posts/postsSelectors';
+import { getAllPosts } from 'redux/features/posts/postsOperations';
+
 import { PopularPosts } from 'components/PopularPosts';
 import { PostItem } from 'components/PostItem';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPosts } from 'redux/features/posts/postsOperations';
-import { getPopularPosts, getPosts } from 'redux/features/posts/postsSelectors';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -19,15 +21,15 @@ export const MainPage = () => {
   }
 
   return (
-    <div className="mx-auto max-w-[900px] py-10">
+    <main className="mx-auto max-w-[900px] py-10">
       <div className="flex justify-between gap-8">
-        <ul className="flex basis-4/5 flex-col gap-10">
+        <ul className="flex basis-4/5 flex-col gap-8">
           {posts?.map((post, idx) => (
             <PostItem key={idx} post={post} />
           ))}
         </ul>
         <div className="basis-1/5 ">
-          <ul className="text-xs uppercase text-white">
+          <ul className="text-center  text-lg text-white">
             Popular:
             {popularPosts?.map((post, idx) => (
               <PopularPosts key={idx} post={post} />
@@ -35,6 +37,6 @@ export const MainPage = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </main>
   );
 };

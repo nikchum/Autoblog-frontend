@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
+
 import { PostItem } from 'components/PostItem';
-import React, { useEffect, useState } from 'react';
+
 import axios from '../utils/axios';
 
 export const PostsPage = () => {
@@ -19,10 +21,10 @@ export const PostsPage = () => {
   }, []);
 
   return (
-    <div className="mx-auto flex w-1/2 flex-col gap-10 py-10">
+    <ul className="mx-auto flex w-2/3 flex-col gap-10 py-10">
       {posts?.map(post => (
         <PostItem key={post._id} post={post} />
       ))}
-    </div>
+    </ul>
   );
 };

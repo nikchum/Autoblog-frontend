@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { getCurrent } from 'redux/features/auth/authOperations';
+
 import { Layout } from './Layout';
 import { MainPage } from 'pages/MainPage';
 import { PostsPage } from 'pages/PostsPage';
@@ -7,11 +14,6 @@ import { AddPostPage } from 'pages/AddPostPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { LoginPage } from 'pages/LoginPage';
 import { EditPostPage } from 'pages/EditPostPage';
-import { ToastContainer, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
-import { getCurrent } from 'redux/features/auth/authOperations';
-import { useEffect } from 'react';
 
 export const App = () => {
   const dispatch = useDispatch();
