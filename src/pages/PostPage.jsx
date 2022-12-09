@@ -118,7 +118,7 @@ export const PostPage = () => {
               {user?._id === post?.author && (
                 <div className="mt-4 flex gap-3 pb-2 pr-2">
                   <Link
-                    to={`/${params.id}/edit`}
+                    to={`/posts/${params.id}/edit`}
                     className="flex items-center justify-between gap-2 text-2xl text-white opacity-70 "
                   >
                     <AiTwotoneEdit className="transition-all hover:fill-slate-900" />

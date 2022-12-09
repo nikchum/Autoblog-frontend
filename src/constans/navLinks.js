@@ -8,7 +8,7 @@ export const navLinks = [
     text: 'My posts',
   },
   {
-    path: '/new',
+    path: '/posts/new',
     text: 'Add post',
   },
 ];

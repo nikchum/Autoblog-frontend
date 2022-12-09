@@ -7,7 +7,7 @@ import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
 export const PostItem = ({ post }) => {
   return (
     <li className="flex flex-grow basis-1/4 flex-col rounded-[8px] bg-gray-700 shadow-lg transition-transform hover:scale-[1.02]">
-      <Link to={`/${post._id}`}>
+      <Link to={`/posts/${post._id}`}>
         <div className={post.imgUrl ? 'flex h-80 rounded-sm' : 'flex rounded-sm'}>
           {post.imgUrl && (
             <img

@@ -25,15 +25,17 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
+    <>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/posts" element={<PostsPage />} />
-        <Route path=":id" element={<PostPage />} />
-        <Route path=":id/edit" element={<EditPostPage />} />
-        <Route path="new" element={<AddPostPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index exact element={<MainPage />} />
+          <Route path="posts" element={<PostsPage />} />
+          <Route path="posts/:id" element={<PostPage />} />
+          <Route path="posts/:id/edit" element={<EditPostPage />} />
+          <Route path="posts/new" element={<AddPostPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+        </Route>
         <Route path="*" element={<Navigate to={'/'} />} />
       </Routes>
 
@@ -50,6 +52,6 @@ export const App = () => {
         pauseOnHover
         theme="colored"
       />
-    </Layout>
+    </>
   );
 };
