@@ -20,6 +20,7 @@ ___
 ### Фреймворки и библиотеки :full_moon_with_face: **frontend:**
 - React
 - Redux
+- tailwindcss
 - react-hook-form
 - react-router-dom
 - react-icons
