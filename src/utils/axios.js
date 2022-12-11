@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { path } from './API';
 
 // const instance = axios.create({
 //   baseURL: 'http://localhost:3002/api',
 // });
 
 const instance = axios.create({
-  baseURL: 'https://autoblog-backend-production.up.railway.app/api',
+  baseURL: `${path}/api`,
 });
 
 instance.interceptors.request.use(config => {

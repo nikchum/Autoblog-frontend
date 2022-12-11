@@ -11,6 +11,7 @@ import { Button } from 'components/Button';
 import { removeStatus } from 'redux/features/posts/postsSlice';
 
 import axios from '../utils/axios';
+import { path } from 'utils/API';
 
 export const EditPostPage = () => {
   const [oldImg, setOldImg] = useState('');
@@ -83,11 +84,7 @@ export const EditPostPage = () => {
 
       <div className="flex h-80 py-2">
         {oldImg && !newImage?.length && (
-          <img
-            src={`http://localhost:3002/${oldImg}`}
-            alt="poster"
-            className="w-full object-cover"
-          />
+          <img src={`${path}/${oldImg}`} alt="poster" className="w-full object-cover" />
         )}
         {!!newImage?.length && (
           <img

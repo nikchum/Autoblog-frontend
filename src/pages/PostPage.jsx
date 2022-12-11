@@ -17,6 +17,7 @@ import { CommentItem } from 'components/CommentItem';
 import { removeStatusComments } from 'redux/features/comments/commentsSlice';
 
 import axios from '../utils/axios';
+import { path } from 'utils/API';
 
 export const PostPage = () => {
   const [post, setPost] = useState(null);
@@ -88,12 +89,7 @@ export const PostPage = () => {
           <div className="flex flex-grow basis-1/4 flex-col ">
             <div className={post?.imgUrl ? 'flex h-80 rounded-sm' : 'flex rounded-sm'}>
               {post?.imgUrl && (
-                <img
-
-                  src={`http://localhost:3002/${post.imgUrl}`}
-                  alt="img"
-                  className="w-full object-cover"
-                />
+                <img src={`${path}/${post.imgUrl}`} alt="img" className="w-full object-cover" />
               )}
             </div>
             <div className="flex items-center justify-between px-3 pt-2">

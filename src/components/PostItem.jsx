@@ -3,6 +3,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
+import { path } from 'utils/API';
 
 export const PostItem = ({ post }) => {
   console.log(post?._id);
@@ -13,7 +14,7 @@ export const PostItem = ({ post }) => {
           {post?.imgUrl && (
             <img
               loading="lazy"
-              src={`http://localhost:3002/${post.imgUrl}`}
+              src={`${path}/${post.imgUrl}`}
               alt="img"
               className="w-full object-cover"
             />
