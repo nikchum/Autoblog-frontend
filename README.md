@@ -15,7 +15,7 @@
 
 ___
 
-### Фреймворки и библитеки :full_moon_with_face: **frontend:**
+### Фреймворки и библиотеки :full_moon_with_face: **frontend:**
 - React
 - Redux
 - react-hook-form
@@ -25,7 +25,7 @@ ___
 - axios
 - toastify
 ___
-### Фреймворки и библитеки :new_moon_with_face: **backend:**
+### Фреймворки и библиотеки :new_moon_with_face: **backend:**
 - NodeJS
 - express
 - mongoose
