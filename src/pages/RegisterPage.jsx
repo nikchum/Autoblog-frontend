@@ -45,7 +45,10 @@ export const RegisterPage = () => {
   errors.password && toast.info(errors.password?.message);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto mt-40 flex  w-1/4 flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto mt-40 flex  max-w-[300px] flex-col gap-4"
+    >
       <h1 className=" text-center text-2xl font-medium  text-white">Registration</h1>
 
       <label className=" text-xs">

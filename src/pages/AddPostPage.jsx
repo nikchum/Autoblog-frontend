@@ -53,7 +53,7 @@ export const AddPostPage = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="h-m-60 mx-auto mt-10 flex w-2/4 flex-col gap-4 "
+      className="h-m-60 mx-auto mt-10 flex max-w-[768px] flex-col gap-4 "
     >
       <h1 className=" text-center text-2xl font-medium  text-white">Create post</h1>
 

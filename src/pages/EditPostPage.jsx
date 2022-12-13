@@ -6,15 +6,17 @@ import { toast } from 'react-toastify';
 
 import { getStatus } from 'redux/features/posts/postsSelectors';
 import { updatePost } from 'redux/features/posts/postsOperations';
+import { removeStatus } from 'redux/features/posts/postsSlice';
 
 import { Button } from 'components/Button';
-import { removeStatus } from 'redux/features/posts/postsSlice';
+import { Loader } from 'components/Loader';
 
 import axios from '../utils/axios';
 import { path } from 'utils/API';
 
 export const EditPostPage = () => {
   const [oldImg, setOldImg] = useState('');
+  const [isLoading, setisLoading] = useState(false);
 
   const dispatch = useDispatch();
   const status = useSelector(getStatus);
@@ -33,12 +35,15 @@ export const EditPostPage = () => {
 
   const fetchPost = useCallback(async () => {
     try {
+      setisLoading(true);
       const { data } = await axios.get(`/posts/${params.id}`);
       setValue('title', data.title);
       setValue('text', data.text);
       setOldImg(data.imgUrl);
+      setisLoading(false);
     } catch (error) {
       console.log(error);
+      setisLoading(false);
     }
   }, [params.id, setValue]);
 
@@ -70,12 +75,16 @@ export const EditPostPage = () => {
   errors.title && toast.info(errors.title?.message);
   errors.text && toast.info(errors.text?.message);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto mt-10 flex h-60 w-2/3 flex-col gap-4"
+      className="mx-auto mt-10 flex h-60 max-w-[768px] flex-col gap-4"
     >
-      <h1 className=" text-center text-2xl font-medium  text-white">Create post</h1>
+      <h1 className=" text-center text-2xl font-medium  text-white">Edit post</h1>
 
       <label className=" flex cursor-pointer items-center justify-center rounded-lg border-2 border-dotted bg-gray-600 py-2 text-xs text-gray-300 transition-opacity hover:opacity-80 focus:opacity-80">
         Attach an image

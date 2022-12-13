@@ -18,10 +18,12 @@ import { removeStatusComments } from 'redux/features/comments/commentsSlice';
 
 import axios from '../utils/axios';
 import { path } from 'utils/API';
+import { Loader } from 'components/Loader';
 
 export const PostPage = () => {
   const [post, setPost] = useState(null);
   const [comment, setComment] = useState('');
+  const [isLoading, setisLoading] = useState(false);
 
   const params = useParams();
   const user = useSelector(getUser);
@@ -54,10 +56,13 @@ export const PostPage = () => {
 
   const fetchPost = useCallback(async () => {
     try {
+      setisLoading(true);
       const { data } = await axios.get(`/posts/${params.id}`);
       setPost(data);
+      setisLoading(false);
     } catch (error) {
       console.log(error);
+      setisLoading(false);
     }
   }, [params.id]);
 
@@ -75,6 +80,10 @@ export const PostPage = () => {
     }
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <main>
       <Link
@@ -84,8 +93,8 @@ export const PostPage = () => {
         Back
       </Link>
 
-      <div className="flex gap-10 py-8">
-        <div className="w-2/3 rounded-[8px] bg-gray-700 shadow-lg">
+      <div className="flex gap-6 py-8">
+        <div className="h-fit w-2/3 rounded-[8px] bg-gray-700 shadow-lg">
           <div className="flex flex-grow basis-1/4 flex-col ">
             <div className={post?.imgUrl ? 'flex h-80 rounded-sm' : 'flex rounded-sm'}>
               {post?.imgUrl && (
@@ -132,7 +141,7 @@ export const PostPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-1/3 flex-col gap-6 rounded-lg bg-gray-700 p-8 shadow-lg ">
+        <div className="flex h-fit w-1/3 flex-col gap-6 rounded-lg bg-gray-700 p-8 shadow-lg ">
           <form className="flex gap-2" onSubmit={e => e.preventDefault()}>
             <input
               onChange={e => setComment(e.target.value)}

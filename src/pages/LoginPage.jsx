@@ -46,7 +46,7 @@ export const LoginPage = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto mt-40 flex h-60 w-1/4 flex-col gap-4"
+      className="mx-auto mt-40 flex h-60 max-w-[300px] flex-col gap-4"
     >
       <h1 className=" text-center text-2xl font-medium  text-white">Authorization</h1>
 
