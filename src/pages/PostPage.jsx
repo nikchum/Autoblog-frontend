@@ -74,7 +74,14 @@ export const PostPage = () => {
     dispatch(getPostComments(params.id));
   }, [dispatch, params.id]);
 
+  console.log(user);
+
   const handleSubmitComment = () => {
+    if (!user._id) {
+      toast.error('Comments can be posted only by registered users');
+      return;
+    }
+
     if (comment.trim()) {
       dispatch(createComment({ postId: params.id, comment }));
     }
