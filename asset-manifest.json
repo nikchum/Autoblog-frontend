@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Autoblog-frontend/static/css/main.38e01ed3.css",
-    "main.js": "/Autoblog-frontend/static/js/main.96bdf41a.js",
+    "main.css": "/Autoblog-frontend/static/css/main.2f186231.css",
+    "main.js": "/Autoblog-frontend/static/js/main.da0986f3.js",
     "static/media/logo.png": "/Autoblog-frontend/static/media/logo.00a4ddbf5d016b42e41d.png",
     "index.html": "/Autoblog-frontend/index.html",
-    "main.38e01ed3.css.map": "/Autoblog-frontend/static/css/main.38e01ed3.css.map",
-    "main.96bdf41a.js.map": "/Autoblog-frontend/static/js/main.96bdf41a.js.map"
+    "main.2f186231.css.map": "/Autoblog-frontend/static/css/main.2f186231.css.map",
+    "main.da0986f3.js.map": "/Autoblog-frontend/static/js/main.da0986f3.js.map"
   },
   "entrypoints": [
-    "static/css/main.38e01ed3.css",
-    "static/js/main.96bdf41a.js"
+    "static/css/main.2f186231.css",
+    "static/js/main.da0986f3.js"
   ]
 }
