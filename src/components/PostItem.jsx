@@ -6,7 +6,6 @@ import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
 import { path } from 'utils/API';
 
 export const PostItem = ({ post }) => {
-  console.log(post?._id);
   return (
     <li className="flex flex-grow basis-1/4 flex-col rounded-[8px] bg-gray-700 shadow-lg transition-transform hover:scale-[1.02]">
       <Link to={`/posts/${post?._id}`}>
